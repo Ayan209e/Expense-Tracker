@@ -89,15 +89,6 @@ h4 {
     border-radius: 30px;
     padding-top: 30px;
 }
-@media only screen and (max-width:370px){
-    .inc-exp-container{
-        flex-direction: column;
-        gap: 20px;
-    }
-    .inc-exp-container > div:first-of-type {
-        border-bottom: 1px solid #dedede;
-    }
-}
 .inc-exp-container > div {
     flex: 1;
     font-size: larger;
@@ -106,6 +97,16 @@ h4 {
   
 .inc-exp-container > div:first-of-type {
     border-right: 1px solid #dedede;
+}
+@media only screen and (max-width:370px){
+    .inc-exp-container{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .inc-exp-container > div:first-of-type {
+        border-bottom: 1px solid #dedede;
+        border-right: none;
+    }
 }
   
 .money {
