@@ -55,6 +55,17 @@ h1 {
     text-transform: capitalize;
     font-size: 40px;
 }
+@media only screen and (max-width:400px){
+    h1{
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width:300px){
+    h1{
+        font-size: 20px;
+    }
+}
+
   
 h3 {
     border-bottom: 1px solid #bbb;
@@ -78,7 +89,15 @@ h4 {
     border-radius: 30px;
     padding-top: 30px;
 }
-  
+@media only screen and (max-width:370px){
+    .inc-exp-container{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .inc-exp-container > div:first-of-type {
+        border-bottom: 1px solid #dedede;
+    }
+}
 .inc-exp-container > div {
     flex: 1;
     font-size: larger;
