@@ -163,7 +163,7 @@ input[type="number"] {
 
 .btn {
     cursor: pointer;
-    background-color: #9c88ff;
+    background-color: #7e6ed2;
     box-shadow: var(--box-shadow);
     color: #fff;
     border: 0;
@@ -172,14 +172,13 @@ input[type="number"] {
     margin: 10px 0 30px;
     padding: 10px;
     width: 100%;
-    opacity: 0.8;
     transition: all ease 0.5s;
     border-radius: 25px;
 }
 
 
 .btn:hover{
-    opacity: 1;
+    background-color: #6a5cb0;
 }
 
 .btn:focus,
