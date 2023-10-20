@@ -12,6 +12,7 @@ const list = document.getElementById("list");
 const form = document.getElementById("form");
 const text = document.getElementById("text");
 const amount = document.getElementById("amount");
+const category = document.getElementById("cat");
 
 // Local Storage
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions')); 
@@ -26,8 +27,11 @@ function addTransaction(e){
   if(text.value.trim() === ''){
     alert('Please Enter Transaction Name')
   }
-  if(amount.value.trim() === ''){
+  else if(amount.value.trim() === ''){
     alert('Please Enter Amount')
+  }
+  else if(amount.value.trim() === '0'){
+    alert('Please Enter Valid Amount')
   }
   else{
     const transaction = {
@@ -37,7 +41,6 @@ function addTransaction(e){
     }
 
     transactions.push(transaction);
-
     addTransactionDOM(transaction);
     updateValues();
     updateLocalStorage();
@@ -54,12 +57,21 @@ function generateID(){
 //Add Trasactions to DOM list
 function addTransactionDOM(transaction) {
   //GET sign
-  const sign = transaction.amount < 0 ? "-" : "+";
+  // const sign = transaction.amount < 0 ? "-" : "+";
+  const sign = (category.value=='inc') ? '+' : '-';
+  if(sign=='-'){
+    if(transaction.amount>0)
+    transaction.amount *= -1;
+  }
+  else if(sign=='+'){
+    if(transaction.amount<0)
+    transaction.amount *= -1;
+  }
   const item = document.createElement("li");
 
   //Add Class Based on Value
   item.classList.add(
-    transaction.amount < 0 ? "minus" : "plus"
+    sign=='-' ? "minus" : "plus"
   );
 
   item.innerHTML = `

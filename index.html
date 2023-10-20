@@ -29,15 +29,30 @@
                     </p>
                 </div>
             </div>
+
             <h3>ADD NEW TRANSACTION</h3>
             <form id="form">
                 <div class="form-control">
                     <label for="text">Text</label>
                     <input type="text" id="text" placeholder="Transaction Name"/>
                 </div>
+                
                 <div class="form-control">
-                    <label for="amount">Amount <br> (Income - Positive(+) / Expense - Negative(-))</label>
-                    <input type="number" id="amount" placeholder="Amount"> 
+                    <label for="amount">Amount</label> 
+                        <!-- <br> (Income - Positive(+) / Expense - Negative(-))</label> -->
+                    <div class="category">
+                        <div class="select">
+                            <select name="cat" id="cat">
+                                <option value="inc">Income</option>
+                                <option value="exp">Expense</option>
+                            </select>
+                        </div>
+                        
+                        <div class="amt">
+                            <input type="number" id="amount" placeholder="Amount"> 
+                        </div>
+                    </div>
+                    
                 </div>
                 <button class="btn">ADD TRANSACTION</button>
             </form>
