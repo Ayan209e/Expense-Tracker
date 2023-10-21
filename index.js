@@ -12,7 +12,6 @@ const list = document.getElementById("list");
 const form = document.getElementById("form");
 const text = document.getElementById("text");
 const amount = document.getElementById("amount");
-const category = document.getElementById("cat");
 
 // Local Storage
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions')); 
@@ -41,6 +40,7 @@ function addTransaction(e){
     }
 
     transactions.push(transaction);
+
     addTransactionDOM(transaction);
     updateValues();
     updateLocalStorage();
@@ -57,21 +57,12 @@ function generateID(){
 //Add Trasactions to DOM list
 function addTransactionDOM(transaction) {
   //GET sign
-  // const sign = transaction.amount < 0 ? "-" : "+";
-  const sign = (category.value=='inc') ? '+' : '-';
-  if(sign=='-'){
-    if(transaction.amount>0)
-    transaction.amount *= -1;
-  }
-  else if(sign=='+'){
-    if(transaction.amount<0)
-    transaction.amount *= -1;
-  }
+  const sign = transaction.amount < 0 ? "-" : "+";
   const item = document.createElement("li");
 
   //Add Class Based on Value
   item.classList.add(
-    sign=='-' ? "minus" : "plus"
+    transaction.amount < 0 ? "minus" : "plus"
   );
 
   item.innerHTML = `
@@ -126,4 +117,3 @@ function Init() {
 }
 
 Init();
-
